@@ -33,6 +33,7 @@
 # @param tmp_dir [String] Where filebeat should be temporarily downloaded to so it can be installed (windows only)
 # @param prospectors [Hash] Prospectors that will be created. Commonly used to create prospectors using hiera
 # @param prospectors_merge [Boolean] Whether $prospectors should merge all hiera sources, or use simple automatic parameter lookup
+# @param key_location [String] The location where the public key for the apt source can be located
 class filebeat (
   $package_ensure    = $filebeat::params::package_ensure,
   $manage_repo       = $filebeat::params::manage_repo,
@@ -56,6 +57,7 @@ class filebeat (
   $download_url      = $filebeat::params::download_url,
   $install_dir       = $filebeat::params::install_dir,
   $tmp_dir           = $filebeat::params::tmp_dir,
+  $key_location      = $filebeat::params::key_location,
   $prospectors       = {},
   $prospectors_merge = false,
 ) inherits filebeat::params {

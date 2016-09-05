@@ -14,6 +14,7 @@ class filebeat::params {
   $shipper        = {}
   $logging        = {}
   $run_options    = {}
+  $key_location   = 'http://packages.elastic.co/GPG-KEY-elasticsearch'
 
   if versioncmp('1.9.1', $::rubyversion) > 0 {
     $conf_template = "${module_name}/filebeat.yml.ruby18.erb"

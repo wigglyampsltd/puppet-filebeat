@@ -11,7 +11,7 @@ class filebeat::repo {
           repos    => 'main',
           key      => {
             id     => '46095ACC8548582C1A2699A9D27D666CD88E42B4',
-            source => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
+            source => $filebeat::key_location,
           },
         }
       }
@@ -22,7 +22,7 @@ class filebeat::repo {
           descr    => 'elastic beats repo',
           baseurl  => 'https://packages.elastic.co/beats/yum/el/$basearch',
           gpgcheck => 1,
-          gpgkey   => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
+          gpgkey   => $filebeat::key_location,
           enabled  => 1,
         }
       }
@@ -40,7 +40,7 @@ class filebeat::repo {
           autorefresh => 1,
           name        => 'beats',
           gpgcheck    => 1,
-          gpgkey      => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
+          gpgkey      => $filebeat::key_location,
           type        => 'yum',
         }
       }
